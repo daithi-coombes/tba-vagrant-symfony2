@@ -30,5 +30,5 @@ Get the [lxc]() container
 sudo apt-get install lxc lxctl
 sudo lxc-checkconfig
 vagrant plugin install vagrant-lxc
-vagrant box add symphony-latest-debian-wheezy-64 https://dl.dropboxusercontent.com/u/67225617/lxc-vagrant/lxc-wheezy64-puppet3-2013-07-27.box
+vagrant up
 ```

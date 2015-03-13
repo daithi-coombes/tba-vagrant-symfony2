@@ -19,7 +19,16 @@ Also in `roadmap` is to have `php-dev` tools installed such as:
 
  ###Go take a holiday and then check back. Only on `init-commit` at the moment.
 
+
 ```bash
 git clone git@github.com:daithi-coombes/tba-vagrant-symfony2.git vagrant-symfony2
+cd vagrant-symfony2
+vagrant up
+```
+
+Get the [lxc]() container
+sudo apt-get install lxc lxctl
+sudo lxc-checkconfig
+vagrant plugin install vagrant-lxc
 vagrant box add symphony-latest-debian-wheezy-64 https://dl.dropboxusercontent.com/u/67225617/lxc-vagrant/lxc-wheezy64-puppet3-2013-07-27.box
 ```

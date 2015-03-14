@@ -1,22 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 Vagrant.configure("2") do |config|
 
-    #synatx: $class::$method: string $name, array $config
-    #config.vm.provision "shell", inline: "echo hello"
-    #
-    #call above with anonymous function
-    #
-    #syntax: $class::$method: string $name, $anon_func()
-    config.vm.provision "foo-bar" do |s|
-        s.inline = "foo bar"
-    end
+  config.vm.box = "scotch/box"
+  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.hostname = "scotchbox"
+  config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
 
-    #removes and purges current install including:
-    # - databases
-    # - files
-    # - @todo backs up logs
-    #
-    config.vm.provision "reset", type: "shell" do |s|
-        s.inline = 'echo "Reseting Databases, Files and Logs..."'
-    end
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.ssh.forward_agent = true
 
+  config.vm.provision :shell, path: "bootstrap.sh"
 end
